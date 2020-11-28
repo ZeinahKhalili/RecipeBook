@@ -4,37 +4,34 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
-import { DropdownDirective } from './dropdown.directive';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
-import {APP_ROUTES, routing} from './app.routes';
-import { RecipeStartComponent } from './recipes/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import {routing} from './app.routes';
+import {HttpClientModule} from '@angular/common/http';
+
+// Import BrowserAnimationsModule
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+// Import your library
+import { AlertModule } from 'ngx-alerts';
+import {ShoppingListModule} from './shopping-list/shopping-list.module';
+import { HomeComponent } from './home.component';
+import {CoreModule} from './core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeItemComponent,
-    RecipeDetailComponent,
-    ShoppingListComponent,
-    ShoppingListAddComponent,
-    DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    routing
-  ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      routing,
+      ShoppingListModule,
+      HttpClientModule,
+      CoreModule,
+      BrowserAnimationsModule,
+      AlertModule.forRoot({maxMessages: 5, timeout: 5000, positionX: 'right', positionY: 'top'})
+    ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
