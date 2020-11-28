@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Recipe} from './recipe';
+import { Recipe } from './recipe';
 
 @Component({
   selector: 'rb-recipes',
   templateUrl: './recipes.component.html',
 })
-export class RecipesComponent {
-
-}
+export class RecipesComponent {}
